@@ -1,7 +1,23 @@
 version: '3.9'
+
 services:
+  backend-app:
+    build:
+      context: ./mission-mng
+      dockerfile: ./mission-mng/docker-config/Dockerfile
+    container_name: backend-app
+    working_dir: /var/www/html
+    ports: 80:80
+    volumes:
+      - ./mission-mng:/var/www/html
+      - ./mission-mng/docker-config/nginx/nginx_log:/var/log/nginx
+      - ./mission-mng/docker-config/php-fpm:/var/log/php-fpm.log
+      - ./mission-mng/docker-config/nginx/config.d/app.conf:/etc/nginx/conf.d/app.conf
+    links:
+      - mongodb
+  # Mongo
   mongodb:
-    image: mongo:latest
+    image: mongo:4.0
     container_name: mongodb
     restart: unless-stopped
     environment:
@@ -10,11 +26,11 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - ./database-data:/data/db
+      - ./mongodb-data:/data/db
   
-  # Mongo Express Service
+  # Mongo Express
   mongo-express:
-    image: mongo-express:latest # latest image
+    image: mongo-express:latest
     container_name: mongo-express
     restart: unless-stopped
     ports:
