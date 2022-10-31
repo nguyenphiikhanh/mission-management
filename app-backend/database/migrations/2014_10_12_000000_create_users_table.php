@@ -13,6 +13,8 @@ class CreateUsersTable extends Migration
      */
     public function up()
     {
+        /*collection is auto, so it's unnecessary to up function */
+
         // Schema::create('users', function (Blueprint $table) {
         //     $table->id();
         //     $table->string('name');
