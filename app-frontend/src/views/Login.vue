@@ -68,7 +68,7 @@
 
                 <div class="col-12">
                   <div class="mb-4">
-                    <button class="btn btn-secondary w-100">{{btnLoginText}}</button>
+                    <button class="btn btn-secondary w-100">Đăng nhập</button>
                   </div>
                 </div>
               </div>
@@ -81,12 +81,21 @@
 
 </template>
 
-<script setup>
+<script>
 import '@/assets/src/assets/css/light/authentication/auth-cover.css';
 import '@/assets/src/assets/css/dark/authentication/auth-cover.css';
-import {ref} from "vue";
+import {mapActions} from 'vuex';
 
-let btnLoginText = ref('Đăng nhập');
+export default {
+  ...mapActions({
+    login: "login",
+  }),
+  data(){
+    return{
+
+    }
+  }
+}
 
 </script>
 

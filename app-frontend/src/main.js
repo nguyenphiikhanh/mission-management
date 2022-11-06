@@ -1,4 +1,4 @@
-import { createApp } from 'vue'
+import {createApp} from 'vue'
 import './style.css'
 import App from './App.vue';
 
@@ -11,10 +11,18 @@ import "bootstrap-icons/font/bootstrap-icons.css"
 import '@/assets/layouts/vertical-light-menu/css/light/plugins.css';
 import '@/assets/layouts/vertical-light-menu/css/dark/plugins.css';
 
-
 //router
 import router from './router'
 
-const app = createApp(App);
-app.use(router);
-app.mount('#app');
+//store
+import store from "@/store/index.js";
+
+//vee-validate
+
+
+const app = createApp(App)
+    .use(router)
+    .use(store)
+;
+app.mount("#app");
+

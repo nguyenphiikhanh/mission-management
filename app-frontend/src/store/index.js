@@ -1,9 +1,11 @@
 import Vuex from  'vuex';
-import global from "./global/index.js";
+import global from "./global";
+import auth from './auth'
 
-const store = new Vuex({
+const store = new Vuex.Store({
     modules:{
         global,
+        auth,
     }
 });
 
