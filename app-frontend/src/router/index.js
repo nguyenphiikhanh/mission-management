@@ -29,7 +29,7 @@ const routes = [
         component: ResetPassword,
         meta: {
             middleware: 'guest',
-            title: title.root_title,
+            title: title.passwor_reset,
         }
     }
 

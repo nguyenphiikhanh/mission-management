@@ -15,6 +15,11 @@ import '@/assets/layouts/vertical-light-menu/css/dark/plugins.css';
 //router
 import router from "@/router";
 
+//Vee-Validate
+import VeeValidate from 'vee-validate';
+import CustomValidator from "@/validation/custom-validator";
+Vue.use(VeeValidate);
+Vue.use(CustomValidator);
 
 new Vue({
   router,

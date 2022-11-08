@@ -11,7 +11,7 @@
 
             <div class="position-relative">
 
-              <img src="../assets/src/assets/img/customize/hnue-logo.png" alt="auth-img">
+              <img src="@/assets/src/assets/img/customize/hnue-logo.png" alt="auth-img">
 
               <h1 class="mt-5 text-danger fw-bold px-2">HỆ THỐNG HỖ TRỢ ĐÁNH GIÁ...
               </h1>
@@ -29,48 +29,52 @@
 
               <div class="row">
                 <div class="col-md-12 mb-3">
-                  <img src="../assets/src/assets/img/customize/website-02.svg" alt="">
+                  <img src="@/assets/src/assets/img/customize/website-02.svg" alt="">
                 </div>
-                <div class="col-md-12">
-                  <div class="input-group mb-3">
-                    <span class="input-group-text"><i class="bi bi-person-circle"></i></span>
-                    <div class="form-floating">
-                      <input type="text" class="form-control"  placeholder="Tên tài khoản/email">
-                      <label >Tên tài khoản/email</label>
+                <form @submit.prevent="loginAction()">
+                  <div class="col-md-12 mb-3">
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="bi bi-person-circle"></i></span>
+                      <div class="form-floating">
+                        <input v-validate.immediate="'required'" type="text" class="form-control" name="login_id" placeholder="Tên tài khoản/email">
+                        <label >Tên tài khoản/email</label>
+                      </div>
+                    </div>
+                    <div v-if="errors.first('login_id') && sumitLogin" class="text-danger">{{errors.first("login_id")}}</div>
+                  </div>
+                  <div class="col-12">
+                    <div class="input-group">
+                      <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+                      <div class="form-floating">
+                        <input v-validate.immediate="'required'" type="password" name="password" class="form-control" placeholder="Mật khẩu">
+                        <label>Mật khẩu</label>
+                      </div>
+                    </div>
+                    <div v-if="errors.first('password') && sumitLogin" class="text-danger">{{errors.first("password")}}</div>
+                  </div>
+                  <div class="col-12">
+                    <div class="form-check form-check-primary form-check-inline d-flex justify-content-end">
+                      <router-link to="/password-reset"><a class="text-center text-info" href="">Quên mật khẩu?</a></router-link>
                     </div>
                   </div>
-                </div>
-                <div class="col-12">
-                  <div class="input-group">
-                    <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
-                    <div class="form-floating">
-                      <input type="password" class="form-control" placeholder="Mật khẩu">
-                      <label>Mật khẩu</label>
+                  <div class="col-12">
+                    <div class="mb-3">
+                      <div class="form-check form-check-primary form-check-inline">
+                        <input class="form-check-input me-3" type="checkbox"
+                               id="form-check-default">
+                        <label class="form-check-label" for="form-check-default">
+                          Nhớ tên tài khoản
+                        </label>
+                      </div>
                     </div>
                   </div>
-                </div>
-                <div class="col-12">
-                  <div class="form-check form-check-primary form-check-inline d-flex justify-content-end">
-                    <router-link to="/password-reset"><a class="text-center text-info" href="">Quên mật khẩu?</a></router-link>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="mb-3">
-                    <div class="form-check form-check-primary form-check-inline">
-                      <input class="form-check-input me-3" type="checkbox"
-                             id="form-check-default">
-                      <label class="form-check-label" for="form-check-default">
-                        Nhớ tên tài khoản
-                      </label>
-                    </div>
-                  </div>
-                </div>
 
-                <div class="col-12">
-                  <div class="mb-4">
-                    <button class="btn btn-secondary w-100">Đăng nhập</button>
+                  <div class="col-12">
+                    <div class="mb-4">
+                      <button type="submit" :disabled="!validateForm && sumitLogin" class="btn btn-secondary w-100">Đăng nhập</button>
+                    </div>
                   </div>
-                </div>
+                </form>
               </div>
             </div>
           </div>
@@ -92,7 +96,19 @@ export default {
   }),
   data(){
     return{
-
+      sumitLogin: false,
+    }
+  },
+  computed:{
+    validateForm(){
+      return !this.errors.any();
+    }
+  },
+  methods:{
+    loginAction(){
+      if(!this.validateForm){
+          this.sumitLogin = true;
+      }
     }
   }
 }
