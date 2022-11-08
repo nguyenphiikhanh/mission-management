@@ -1,5 +1,5 @@
 {
-  "name": "vite-vue2-demo",
+  "name": "app-frontend",
   "version": "0.0.0",
   "scripts": {
     "dev": "vite",
@@ -7,8 +7,15 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@popperjs/core": "^2.11.6",
+    "bootstrap": "^5.2.2",
+    "bootstrap-icons": "^1.9.1",
+    "vee-validate": "^2.2.15",
     "vite-plugin-vue2": "^1.4.0",
-    "vue": "^2.6.12"
+    "vue": "^2.6.12",
+    "vue-router": "^3.6.5",
+    "vue-template-compiler": "^2.7.13",
+    "vuex": "^3.6.2"
   },
   "devDependencies": {
     "vite": "^2.0.5"
