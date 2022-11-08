@@ -21,6 +21,8 @@ import CustomValidator from "@/validation/custom-validator";
 Vue.use(VeeValidate);
 Vue.use(CustomValidator);
 
+//
+
 new Vue({
   router,
   render: (h) => h(App),

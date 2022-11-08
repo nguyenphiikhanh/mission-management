@@ -1,16 +1,16 @@
 <template>
     <div>
-<!--        <CustomLoading/>-->
+        <CustomLoading/>
         <router-view></router-view>
     </div>
 </template>
 
 <script>
-// import CustomLoading from "./components/Loading.vue";
+import CustomLoading from "./components/CustomLoading.vue";
 export default {
-  // components:{
-  //   CustomLoading,
-  // },
+  components:{
+    CustomLoading,
+  },
   data(){
     return{
       isLoading: true,
