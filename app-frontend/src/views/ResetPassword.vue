@@ -11,12 +11,12 @@
 
             <div class="position-relative">
 
-              <img src="../assets/src/assets/img/customize/hnue-logo.png" alt="auth-img">
+              <img src="@/assets/src/assets/img/customize/fit.ico" alt="auth-img">
 
               <h1 class="mt-5 text-danger fw-bold px-2">HỆ THỐNG HỖ TRỢ ĐÁNH GIÁ...
               </h1>
             </div>
-            <p class="position-absolute text-center bottom-0 text-white fw-bold px-2">Copyright&copy;2022 Khoa Công nghệ thông tin - Trường
+            <p class="position-absolute text-center bottom-0 text-black fw-bold px-2">Copyright&copy;2022 Khoa Công nghệ thông tin - Trường
               Đại học Sư phạm Hà Nội</p>
           </div>
 

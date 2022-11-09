@@ -14,14 +14,16 @@ import Loading from 'vue-loading-overlay';
 // Import stylesheet
 import 'vue-loading-overlay/dist/vue-loading.css';
 
+import {mapGetters} from 'vuex';
+
 export default {
-  data() {
-    return {
-      isLoading: true,
-    }
-  },
   components: {
     Loading
+  },
+  computed:{
+    ...mapGetters({
+      isLoading: "globalState/isLoadingState",
+    }),
   },
 }
 </script>

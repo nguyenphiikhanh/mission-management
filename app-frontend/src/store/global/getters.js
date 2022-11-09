@@ -1,5 +1,3 @@
 export default {
-    getLoadingState: (state) => {
-        return state.isLoading;
-    },
+    isLoadingState: (state) => state.isLoading,
 }

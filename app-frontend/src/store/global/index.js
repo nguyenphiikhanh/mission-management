@@ -1,10 +1,11 @@
-import states from "./states.js";
-import mutations from "./mutations.js";
-import actions from "./actions.js";
-import getters from "./getters.js";
+import getters from "./getters";
+import mutations from "./mutations";
+import state from "./state";
+import actions from "./actions";
 
 export default {
-    states,
+    namespaced: true,
+    state,
     getters,
     mutations,
     actions

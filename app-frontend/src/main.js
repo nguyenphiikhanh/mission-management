@@ -21,9 +21,11 @@ import CustomValidator from "@/validation/custom-validator";
 Vue.use(VeeValidate);
 Vue.use(CustomValidator);
 
-//
+//vuex store
+import store from "./store";
 
 new Vue({
+  store,
   router,
   render: (h) => h(App),
 }).$mount('#app');

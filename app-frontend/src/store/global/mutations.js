@@ -1,5 +1,5 @@
 export default {
-    LOADING_ACTIVE(state,val){
-        state.isLoading = val;
+    LOADING_ACTIVE(state,isLoading){
+        state.isLoading = isLoading;
     }
 }
