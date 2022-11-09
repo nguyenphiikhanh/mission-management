@@ -14,7 +14,8 @@ const store = new Vuex.Store({
     modules:{
         globalState,
         auth,
-    }
+    },
+    strict: process.env.NODE_ENV !== 'production'
 });
 
 export default store;

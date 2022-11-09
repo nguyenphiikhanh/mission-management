@@ -6,7 +6,7 @@ export default{
         return http.post('/login',{
             usernameOrEmail: usernameOrEmail,
             password: password
-        })
+        });
     },
 
 }

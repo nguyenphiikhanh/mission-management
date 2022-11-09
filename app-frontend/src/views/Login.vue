@@ -36,7 +36,7 @@
                     <div class="input-group">
                       <span class="input-group-text"><i class="bi bi-person-circle"></i></span>
                       <div class="form-floating">
-                        <input v-validate.immediate="'required'" type="text" class="form-control" name="login_id" placeholder="Tên tài khoản/email">
+                        <input v-validate.immediate="'required'" v-model="login_id" type="text" class="form-control" name="login_id" placeholder="Tên tài khoản/email">
                         <label >Tên tài khoản/email</label>
                       </div>
                     </div>
@@ -46,7 +46,7 @@
                     <div class="input-group">
                       <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
                       <div class="form-floating">
-                        <input v-validate.immediate="'required'" type="password" name="password" class="form-control" placeholder="Mật khẩu">
+                        <input v-validate.immediate="'required'" v-model="password" type="password" name="password" class="form-control" placeholder="Mật khẩu">
                         <label>Mật khẩu</label>
                       </div>
                     </div>
@@ -91,12 +91,11 @@ import '@/assets/src/assets/css/dark/authentication/auth-cover.css';
 import {mapActions} from 'vuex';
 
 export default {
-  ...mapActions({
-    login: "login",
-  }),
   data(){
     return{
       sumitLogin: false,
+      login_id: '',
+      password: ''
     }
   },
   computed:{
@@ -105,9 +104,18 @@ export default {
     }
   },
   methods:{
-    loginAction(){
+    ...mapActions({
+      login: "login",
+    }),
+    async loginAction(){
       if(!this.validateForm){
           this.sumitLogin = true;
+      } else {
+        const loginData = { //login data
+          usernameOrEmail: this.login_id,
+          password: this.password
+        }
+        await this.login(loginData);
       }
     }
   }

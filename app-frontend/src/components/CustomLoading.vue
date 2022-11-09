@@ -22,7 +22,7 @@ export default {
   },
   computed:{
     ...mapGetters({
-      isLoading: "globalState/isLoadingState",
+      isLoading: "isLoadingState",
     }),
   },
 }
