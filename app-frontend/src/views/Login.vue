@@ -59,12 +59,9 @@
                   </div>
                   <div class="col-12">
                     <div class="mb-3">
-                      <div class="form-check form-check-primary form-check-inline">
-                        <input class="form-check-input me-3" type="checkbox"
-                               id="form-check-default">
-                        <label class="form-check-label" for="form-check-default">
-                          Nhớ tên tài khoản
-                        </label>
+                      <div class="form-check form-switch form-check-primary">
+                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                        <label class="form-check-label" for="flexSwitchCheckDefault">Nhớ tên tài khoản</label>
                       </div>
                     </div>
                   </div>

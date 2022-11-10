@@ -10,6 +10,7 @@
         "guzzlehttp/guzzle": "^7.0.1",
         "infyomlabs/laravel-generator": "^3.0",
         "jenssegers/mongodb": "*",
+        "laravel/fortify": "^1.13",
         "laravel/framework": "^8.75",
         "laravel/sanctum": "*",
         "laravel/tinker": "^2.5"
